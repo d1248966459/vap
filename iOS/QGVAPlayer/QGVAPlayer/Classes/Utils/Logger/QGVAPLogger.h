@@ -33,7 +33,7 @@ typedef enum {
     VAPLogLevelInfo,     // Interesting runtime events (startup/shutdown), should be conservative and keep to a minimum.
     VAPLogLevelEvent,
     VAPLogLevelWarn,     // Other runtime situations that are undesirable or unexpected, but not necessarily "wrong".
-    VAPLogLevelError,    // Other runtime errors or unexpected conditions.
+    VAPLogLevelError,    // Other runtime situations or unexpected errors.
     VAPLogLevelFatal,    // Severe errors that cause premature termination.
     VAPLogLevelNone,     // Special level used to disable all log messages.
 } VAPLogLevel;
@@ -46,10 +46,10 @@ typedef void (*QGVAPLoggerFunc)(VAPLogLevel, const char*, int, const char*, NSSt
 #if defined __cplusplus
 extern "C" {
 #endif
-    
-    extern QGVAPLoggerFunc external_VAP_Logger;
-    void internal_VAP_Logger_handler(VAPLogLevel level, const char* file, int line, const char* func, NSString *module, NSString *format, ...);
-    
+
+extern QGVAPLoggerFunc external_VAP_Logger;
+void internal_VAP_Logger_handler(VAPLogLevel level, const char* file, int line, const char* func, NSString *module, NSString *format, ...);
+
 #if defined __cplusplus
 };
 #endif
@@ -57,7 +57,6 @@ extern "C" {
 @interface QGVAPLogger : NSObject
 
 + (void)registerExternalLog:(QGVAPLoggerFunc)externalLog;
-
 + (void)log:(VAPLogLevel)level file:(NSString *)file line:(NSInteger)line func:(NSString *)func module:(NSString *)module message:(NSString *)message;
 
 @end

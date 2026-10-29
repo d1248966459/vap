@@ -25,9 +25,10 @@ let package = Package(
             resources: [
                 .process("Shaders/QGHWDShaders.metal")
             ],
-            // Expose the same Objective-C headers that were public through CocoaPods.
-            publicHeadersPath: "Classes",
+            // Keep public headers flat so SwiftPM can generate a valid Objective-C module.
+            publicHeadersPath: "include",
             cSettings: [
+                .headerSearchPath("include"),
                 .headerSearchPath("Classes"),
                 .headerSearchPath("Classes/Controllers"),
                 .headerSearchPath("Classes/Controllers/Decoders"),
