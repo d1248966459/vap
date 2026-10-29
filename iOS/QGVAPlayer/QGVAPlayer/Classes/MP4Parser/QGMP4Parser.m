@@ -186,7 +186,7 @@
     for (int i = 0; i < length; i++) {
         value += (bytes[i]&0xff)<<((length-i-1)*8);
     }
-    VAP_Debug(kQGVAPModuleCommon, @"readValue length:%lld value:%lld", length, value);
+//    VAP_Debug(kQGVAPModuleCommon, @"readValue length:%lld value:%lld", length, value);
     return value;
 }
 

@@ -14,6 +14,8 @@
 // limitations under the License.
 
 #import <UIKit/UIKit.h>
+// Re-export the logger API from the module umbrella for Objective-C consumers.
+#import "QGVAPLogger.h"
 // Resolve the umbrella header's dependency from the package checkout instead of relying on target search paths.
 #import "../Classes/UIView+VAP.h"
 

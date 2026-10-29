@@ -13,6 +13,9 @@
 // either express or implied. See the License for the specific language governing permissions and
 // limitations under the License.
 
+#ifndef QGVAPLOGGER_H
+#define QGVAPLOGGER_H
+
 #import <Foundation/Foundation.h>
 
 #define kQGVAPModuleCommon @"kQGVAPModuleCommon"
@@ -61,3 +64,5 @@ void internal_VAP_Logger_handler(VAPLogLevel level, const char* file, int line, 
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* QGVAPLOGGER_H */
